@@ -19,7 +19,7 @@ apply plugin: 'com.bmuschko.docker-remote-api'
 def jarName = 'gs-spring-boot'
 
 // Docker variables
-def docker_path      = "docker/web/"
+def docker_path      = "build/docker/web/"
 def docker_user_name = 'bryanbcruz', image_name = 'teste2', image_tag = 'latest' 
 def image_full_name  = docker_user_name + '/' + image_name + ':' + image_tag 
 
@@ -73,6 +73,6 @@ task pushDockerImage(type: DockerPushImage, group: "Docker", description: "Pushe
     dependsOn createDockerImage
 
     imageName = image_full_name
-} 
+}
 
 build.dependsOn createDockerImage, pushDockerImage
