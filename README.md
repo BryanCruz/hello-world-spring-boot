@@ -18,6 +18,12 @@
 
 * Execute `./gradlew build`
 
-* Rode o container com `docker run -p 8080:8080 $docker_user_name/$image_name`
+* Rodando apenas com o Docker:
+	
+	* Rode o container com `docker run -p 8080:8080 $docker_user_name/$image_name`
+
+* Rodando com o Docker Compose:
+	
+	* Execute `docker-compose up`
 
 * Acesse localhost na porta 8080
