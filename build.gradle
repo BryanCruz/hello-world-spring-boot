@@ -65,7 +65,6 @@ task createDockerImage(type: DockerBuildImage, group: "Docker", description: "Cr
     dependsOn createWebDockerfile, copyJarFile
 
     inputDir = createWebDockerfile.destFile.parentFile
-    
     tag = image_full_name
 }
 
