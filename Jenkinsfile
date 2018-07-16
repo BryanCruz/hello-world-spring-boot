@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                chmod +x ./gradlew;
-                ./gradlew build
+                chmod +x ./gradlew && ./gradlew build
             }
         }
         stage('Test') {
