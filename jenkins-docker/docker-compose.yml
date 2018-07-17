@@ -1,0 +1,17 @@
+version: '3'
+services:
+  hello-world:
+    build: ../build/docker/web
+    ports:
+      - "80:8080"
+  jenkins-master:
+    build: ./jenkins-master
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins-volume:/var/log/jenkins
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins-volume:
