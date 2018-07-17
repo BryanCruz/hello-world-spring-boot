@@ -6,8 +6,9 @@ node {
     stage('Clone Repository') {
         checkout scm
     }
-    stage('Build Image') {
-        app = docker.build('bryanbcruz/hello-world-spring-boot')
+    
+    stage('Build') {
+        sh './gradlew build'
     }
 }
 
