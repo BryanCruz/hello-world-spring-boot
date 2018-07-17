@@ -1,10 +1,6 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    environment { 
-        def 
-    }
-
     agent any
 
     stages {
