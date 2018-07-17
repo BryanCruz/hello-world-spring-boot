@@ -18,10 +18,13 @@ ENV JENKINS_HOME /home/${user}
 
 # Add Jenkins user
 # Jenkins is run with user `jenkins`, uid = 1000
-RUN addgroup -g ${gid} docker && \
-    adduser -D -u ${uid} -G docker ${user}
+RUN addgroup -g ${gid} ${group} && \
+    adduser -D -u ${uid} -G ${group} ${user}
 
-# RUN chown -R ${user}:${user} /home/${user}
+RUN addgroup docker && \
+    addgroup -S ${user} docker
+
+RUN chown -R ${user}:${user} /home/${user}
 
 # Add the jenkins user to sudoers
 RUN echo "${user}    ALL=(ALL)    ALL" >> etc/sudoers
