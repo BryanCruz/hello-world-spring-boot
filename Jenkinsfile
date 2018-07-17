@@ -1,6 +1,10 @@
 #!/usr/bin/env groovy
 
 pipeline {
+    environment { 
+        def 
+    }
+
     agent any
 
     stages {
@@ -11,7 +15,7 @@ pipeline {
         }
         stage('Build Image'){
             steps {
-                app = docker.build("bryanbcruz/hello-world-spring-boot")
+                docker.build('bryanbcruz/hello-world-spring-boot')
             }
         }
         stage('Build') {
