@@ -4,9 +4,20 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone Repository'){
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build Image'){
+            steps {
+                app = docker.build("bryanbcruz/hello-world-spring-boot")
+            }
+        }
         stage('Build') {
             steps {
-                chmod +x ./gradlew && ./gradlew build
+                // ./gradlew build
+                echo 'Building'
             }
         }
         stage('Test') {
